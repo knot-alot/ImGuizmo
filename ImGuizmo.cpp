@@ -2613,7 +2613,9 @@ namespace IMGUIZMO_NAMESPACE
       for (int iFace = 0; iFace < cubeFaceCount; iFace++)
       {
          const CubeFace& cubeFace = faces[iFace];
-         gContext.mDrawList->AddConvexPolyFilled(cubeFace.faceCoordsScreen, 4, cubeFace.color);
+          auto col = ImColor(ImVec4(0,200,0,255));
+         gContext.mDrawList->AddQuad(cubeFace.faceCoordsScreen[0],cubeFace.faceCoordsScreen[1],cubeFace.faceCoordsScreen[2],cubeFace.faceCoordsScreen[3], col, 1.0f);
+//         gContext.mDrawList->AddConvexPolyFilled(cubeFace.faceCoordsScreen, 4, cubeFace.color);
       }
 
       _freea(faces);
